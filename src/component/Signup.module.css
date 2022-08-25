@@ -1,0 +1,47 @@
+.signup{
+    display: flex;
+    
+}
+
+
+.signup div:nth-child(2){
+    width: 100vh;
+}
+
+.signupform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.signupform>h1{
+    font-size: 48px;
+    font-weight:630;
+}
+
+.signupform>p{
+    margin-bottom: 50px;
+}
+
+.facebooksignupBtn{
+    width: 50%;
+    margin-top: -20px;
+}
+
+.facebooklogo{
+    height: 22px;
+    width: 22px;
+    margin-right: 8px;
+}
+
+.joinbutton{
+    margin-top: 40px;
+    width: 100%;
+}
+
+.or{
+    margin-top:20px;
+}
+
