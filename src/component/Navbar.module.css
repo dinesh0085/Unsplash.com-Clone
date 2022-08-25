@@ -1,0 +1,33 @@
+.navbar{
+    width: 100vw;
+    height: 120px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.upperNav{
+    width: 100vw;
+    margin: auto;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.upperNav p{
+color: grey;
+}
+
+.lowerNav{
+    width: 100vw;
+    margin: auto;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: grey;
+}
+.featuredtext{
+    font-size: 10px;
+    text-align: start;
+}
