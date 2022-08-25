@@ -1,0 +1,46 @@
+.searchbarSection{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    border: 1px solid;
+    height: 80vh;
+    padding: 300px;
+    background-image: url(https://wallpapercave.com/wp/wp2506845.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    color: white;
+}
+
+.searchbarh1{
+    font-weight: bolder;
+    font-size: 46px;
+}
+
+.searchbarh4{
+    font-weight: bolder;
+    font-size: 20px;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.searchbarInnerDiv{
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.homegridDiv{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+
+.gridImage{
+    height: auto;
+    border: 1px solid;
+}

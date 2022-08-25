@@ -1,0 +1,66 @@
+.loginLogo{
+    margin: auto;
+    width: 5%;
+}
+
+
+.loginInput{
+    border: 1px solid;
+}
+
+.loginform{
+ 
+    margin: auto;
+    width: 40%;
+  
+}
+
+.loginform>h1{
+    font-size: 30px;
+    font-weight:bolder;
+    margin-top: 30px;
+}
+
+.loginform>p{
+    margin-bottom: 50px;
+}
+
+/* .facebooksignupBtn{
+    width: 50%;
+    margin-top: -20px;
+} */
+
+.facebooklogo{
+    height: 22px;
+    width: 22px;
+    margin-right: 8px;
+}
+
+.joinbutton{
+    margin-top: 40px;
+    width: 100%;
+}
+
+.or{
+    margin-top:20px;
+}
+
+.facebookloginBtn{
+    width: 100%;
+}
+
+.dontHveAcnt{
+    
+    border: 1px solid grey;
+    width: 41%;
+    margin: auto;
+    margin-top: 30px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    
+}
+
+
