@@ -1,15 +1,14 @@
 import styles from "./Signup.module.css"
-import { Button, ButtonGroup, Input, Stack } from '@chakra-ui/react'
+import { Button, Input, Stack } from '@chakra-ui/react'
 import { Container } from '@chakra-ui/react'
 import facebookLogo from "../svg/facebookLogo.svg"
 import {
     FormControl,
-    FormLabel,
-    FormErrorMessage,
-    FormHelperText,
+    FormLabel
   } from '@chakra-ui/react'
 import { useState } from "react"
 import axios from "axios"
+import { Link } from "react-router-dom"
 
 
 
@@ -37,6 +36,7 @@ export default function SignupForm(){
         registerUser()
       }
 
+      
       const registerUser=()=>{
        axios.post("https://masai-api-mocker.herokuapp.com/auth/register",register)
         .then((res)=>{
@@ -51,7 +51,7 @@ export default function SignupForm(){
       console.log(register)
     return <div className={styles.signupform}>
         <h1>Join Unsplash</h1>
-        <p>Already have an account?Login</p>
+        <p>Already have an account? <Link to="/login"> Login</Link></p>
         <Button className={styles.facebooksignupBtn} colorScheme='blue'> <img className={styles.facebooklogo} src={facebookLogo} alt="" /> Join using Facebook</Button>
         
         <p className={styles.or}>OR</p>

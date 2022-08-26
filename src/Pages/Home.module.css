@@ -37,10 +37,47 @@
 .homegridDiv{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 10px;
+    gap: 30px;
 }
 
-.gridImage{
-    height: auto;
+/* .gridImage{
+   
+} */
+
+.modalNav{
+    display: flex;
+    width: 10%;
+ 
     border: 1px solid;
 }
+
+.userImageURL{
+    border-radius: 20px;
+    margin-right: 30px;
+    margin-left: 5px;
+    width: 80%;
+}
+
+.userFeild{
+    left: 10px;
+    top: 0;
+    bottom: 40px;
+    display: flex;
+    gap: 120px;
+    width: 10%;
+    align-items: center;
+    
+}
+
+.PhotoCard{
+    
+    box-sizing: border-box;
+    
+}
+
+.userFeild>Button{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: black;
+    color: white;
+}
+

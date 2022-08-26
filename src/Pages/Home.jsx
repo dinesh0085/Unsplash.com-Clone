@@ -6,35 +6,38 @@ import axios from "axios"
 import { useState } from "react"
 import Homegrid from "./Homegrid"
 
+
 function Home(){
 const [homeData,setHomeData] = useState([])
-const [query,setQuery] = useState("nature");
+const [query,setQuery] = useState("");
+const [q,setQ] = useState("nature")
 
 const handleChange=(e)=>{
 setQuery(e.target.value)
 }
 
-const handleEnter=(e)=>{
-    handleGetData(query)
+const handleEnter=()=>{
+    setQ(query)
+    handleGetData(q)
     
 }
 console.log(query)
 
     useEffect(()=>{
-        handleGetData(query)
-    },[query])
+        handleGetData(q)
+    },[q])
 
 
-    // const handleGetData=()=>{
-    //     return  axios.get(`https://pixabay.com/api/?key=29500016-32994493ba25e7eeacaa3a092&per_page=100&q=${query}`)
-    //     .then((res)=>{
-    //    //  console.log(res.data.hits)
-    //     setHomeData(res.data.hits)
-    //     })
-    //     .catch((err)=>{
-    //        console.log(err)
-    //     })
-    // }
+    const handleGetData=()=>{
+        return  axios.get(`https://pixabay.com/api/?key=29500016-32994493ba25e7eeacaa3a092&per_page=12&q=${query}`)
+        .then((res)=>{
+       //  console.log(res.data.hits)
+        setHomeData(res.data.hits)
+        })
+        .catch((err)=>{
+           console.log(err)
+        })
+    }
 
 
     
@@ -47,13 +50,14 @@ console.log(query)
                 <h4 className={styles.searchbarh4}>The internet’s source of freely-usable images.
                       Powered by creators everywhere</h4>
                      <Input
+                     backgroundColor={"white"}
                       placeholder="search free high-resolution photos"
                       value={query}
                       onChange={handleChange}
                       onMouseEnter={handleEnter}
                       name="query"
                       ></Input>
-                     <p>Trending:flowerwallpapersbackgroundshappylove</p>
+                     <p backgroundColor={"white"}>Trending:flower : wallpapers : backgrounds : happy : love</p>
             </div>
            </div>
            

@@ -1,15 +1,13 @@
 import styles from "./Login.module.css"
-import { border, Button, ButtonGroup, Input, Stack } from '@chakra-ui/react'
-import { Container } from '@chakra-ui/react'
+import { Button, ButtonGroup, Input, Stack } from '@chakra-ui/react'
 import facebookLogo from "../svg/facebookLogo.svg"
 import {
     FormControl,
-    FormLabel,
-    FormErrorMessage,
-    FormHelperText,
+    FormLabel
   } from '@chakra-ui/react'
-import { useState } from "react"
+import { useContext, useState } from "react"
 import axios from "axios"
+import { AuthContext } from "../context/AuthContext"
 
 
 
@@ -17,6 +15,8 @@ import axios from "axios"
 
 
 export default function LoginForm(){
+  const {loginUserForAuthentication} = useContext(AuthContext)   
+  const [token,setToken] = useState("")
     const [login,setLogin] = useState({
         
         
@@ -24,12 +24,20 @@ export default function LoginForm(){
         "password": "abc"
     
       })
+      if(token!=""){
+        loginUserForAuthentication()  
+      }
+      
+
+
 
 
       const handleChange=(e)=>{
         const {name:type,value,name} = e.target
         setLogin({...login,[name]:value})
       }
+
+
 
       const handleSubmit=(e)=>{
        e.preventDefault()
@@ -45,6 +53,8 @@ export default function LoginForm(){
         .then((res)=>{
             console.log(res)
             alert(res.data.token)
+            setToken(res.data.token)
+           
         })
         .catch((err)=>{
             console.log(err)
