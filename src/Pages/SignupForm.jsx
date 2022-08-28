@@ -26,29 +26,44 @@ export default function SignupForm(){
       })
 
 
+
       const handleChange=(e)=>{
         const {name:type,value,name} = e.target
         setRegister({...register,[name]:value,mobile:value})
       }
 
+
+
       const handleSubmit=(e)=>{
        e.preventDefault()
-        registerUser()
+        registerUser(register)
       }
 
       
-      const registerUser=()=>{
-       axios.post("https://masai-api-mocker.herokuapp.com/auth/register",register)
+
+
+      const registerUser=(register)=>{
+        const {email,password} = register;
+       axios.post("https://reqres.in/api/register",{
+        "email":email,
+        "password":password
+    })
         .then((res)=>{
-            console.log(res)
-            alert(res.data.message)
+            // console.log(res)
+            if(res.status==200){
+              alert("Registration Successfull")
+            }
+            
         })
         .catch((err)=>{
-            console.log(err)
+            // console.log(err)
+            alert("Something went wrong")
         })
       }
 
-      console.log(register)
+      // console.log(register)
+
+      
     return <div className={styles.signupform}>
         <h1>Join Unsplash</h1>
         <p>Already have an account? <Link to="/login"> Login</Link></p>
