@@ -6,7 +6,7 @@ import { AuthContext } from "../context/AuthContext"
 import styles from "./Navbar.module.css"
 
 function Navbar(){
-    const {isAuth} = useContext(AuthContext);
+    const {isAuth,logoutUserForAuthentication} = useContext(AuthContext);
 
     console.log("AUTH"+isAuth)
 //For Authentication ............
@@ -40,7 +40,7 @@ function Navbar(){
                 <p>|</p>
                 <Link to="/login"> <p>User Profile</p></Link>
                 <p>/</p>
-               <Link to="/signup"> <p>Logout</p></Link>
+                <button onClick={()=>{logoutUserForAuthentication()}}>Logout</button> 
                 <Button>Submit Photo</Button>
                </div>}
          

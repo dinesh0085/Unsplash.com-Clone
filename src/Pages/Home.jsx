@@ -41,7 +41,7 @@ console.log(query)
 
 
     
-    console.log(homeData)
+    // console.log(homeData)
     return (
         <div>
            <div className={styles.searchbarSection}>

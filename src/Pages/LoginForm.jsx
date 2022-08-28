@@ -15,17 +15,20 @@ import { AuthContext } from "../context/AuthContext"
 
 
 export default function LoginForm(){
-  const {loginUserForAuthentication} = useContext(AuthContext)   
+
+  const {loginUserForAuthentication} = useContext(AuthContext) 
+
   const [token,setToken] = useState("")
-    const [login,setLogin] = useState({
-        
-        
+  const [login,setLogin] = useState(
+    {
         "username": "abc",
         "password": "abc"
     
-      })
+    })
+
+    
       if(token!=""){
-        loginUserForAuthentication()  
+        loginUserForAuthentication(token)  
       }
       
 
@@ -44,16 +47,22 @@ export default function LoginForm(){
         loginUser()
       }
 
+      
+
       const loginUser=()=>{
         const {username,password} = login
-       axios.post("https://masai-api-mocker.herokuapp.com/auth/login",{
+       axios.post("https://reqres.in/api/login",{
         username:username,
         password:password
        })
         .then((res)=>{
             console.log(res)
-            alert(res.data.token)
+          if(res.status==200){
+            
             setToken(res.data.token)
+            alert("Login successfull")
+          }
+            
            
         })
         .catch((err)=>{
@@ -62,7 +71,8 @@ export default function LoginForm(){
         })
       }
 
-      console.log(login)
+      
+      // console.log(login)
     return <div className={styles.loginform}>
         <h1>Login</h1>
         <p>Welcome back</p>

@@ -1,6 +1,8 @@
 import { Box, Button, color, useStatStyles } from "@chakra-ui/react"
+import { useContext } from "react"
 import { useState } from "react"
 import ModalComponent from "../component/ModalComponent"
+import { AuthContext } from "../context/AuthContext"
 import styles from "./Home.module.css"
 
 
@@ -8,19 +10,31 @@ import styles from "./Home.module.css"
 function Homegrid({homeDataArr}){
   const [modalVisible,setModalVisible] = useState(false)
   const [selected,setSelected] = useState({})
-
+const {token} = useContext(AuthContext)
   
   return (
         <div>
         
         <div className={styles.homegridDiv}>
-           {homeDataArr && homeDataArr.map((el,i)=>{
-              return <Box onClick={()=>{setModalVisible(true);setSelected(el)}} border={"1px solid"} boxSize={"auto"} className={styles.PhotoCard}>
-            <img  className={styles.gridImage} src={el.largeImageURL} alt="" />
-            <div className={styles.userFeild}>
 
-            <img className={styles.userImageURL} src={el.userImageURL} alt="" />
-            <p>{el.user_id}</p>
+           {homeDataArr && homeDataArr.map((el,i)=>{
+              return <Box 
+                     onClick={()=>{
+                      if(token!=""){
+                        setModalVisible(true);setSelected(el)
+                      }else{
+                        alert("Please Login")
+                      }
+                     }} 
+                     border={"1px solid"} 
+                     boxSize={"auto"} 
+                     className={styles.PhotoCard}>
+
+                      <img  className={styles.gridImage} src={el.largeImageURL} alt="" />
+                      <div className={styles.userFeild}>
+
+                     <img className={styles.userImageURL} src={el.userImageURL} alt="" />
+                     <p>{el.user_id}</p>
             {/* <Button className={({isActive})=>(isActive?styles.activelike:styles.defaultlike)} >♥</Button> */}
           
            <Box
@@ -41,28 +55,28 @@ function Homegrid({homeDataArr}){
             backgroundColor: 'red',
             transform: 'scale(0.98)',
             borderColor: 'red',
-        }}
-        _focus={{
+            }}
+            _focus={{
             backgroundColor: 'white',
             color:"red" }} >
-        ♥
-        </Box>
+            ♥
+            </Box>
  
-  </div>
+            </div>
 
 
      
-        </Box>
+             </Box>
        
-        })}
+             })}
 
 
-         </div>
+            </div>
 
-         <ModalComponent 
-         isOpen={modalVisible} 
-         setModalVisible={setModalVisible}
-         modalData={selected}></ModalComponent>
+            <ModalComponent 
+             isOpen={modalVisible} 
+             setModalVisible={setModalVisible}
+             modalData={selected}></ModalComponent>
 
       </div>
     )
