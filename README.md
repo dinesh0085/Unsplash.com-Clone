@@ -13,10 +13,10 @@
   
  # Features :
 - SignUp, Login and LogOut functionality.
-- User can see Features page.
-- User can see Pricing Page.
-- Filter the Features according to Interest area.
-- Authorize Homepage.
+- User can search photos by name.
+- Authentication.
+- User can like photos after login.
+- Authorize Modal.
   
   
 
